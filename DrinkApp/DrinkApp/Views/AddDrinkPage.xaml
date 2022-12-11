@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DrinkApp.Views.AddDrinkPage">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Label Text="Nom" />
+            <Entry x:Name="nameEntry" Placeholder="Entrez un nom"/>            
+            <Label Text="Couleur" />
+            <Entry x:Name="colorEntry" Placeholder="Entrez une couleur"/>            
+            <Label Text="Quantité" />
+            <Entry x:Name="quantityEntry" Placeholder="Entrez une quantité"/>
+            <Button Text="Ajouter" Clicked="AddButton_Clicked"/>
+            <Button Text="Modifier" Clicked="UpdateButton_Clicked"/>
+            <Button Text="Supprimer" Clicked="DeleteButton_Clicked"/>
+            <CollectionView x:Name="DrinkList" SelectionMode="Single" SelectionChanged="DrinkList_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label Text="{Binding Name}"/>
+                            <Label Text="{Binding Color}" FontSize="Small"/>
+                            <Label Text="{Binding Quantity}" FontSize="Small"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
